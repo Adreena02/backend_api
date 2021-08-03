@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+
+    
     def create
         user = User.create!(user_params)
         if user.valid?
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
     private
 
     def find_user
-        User.find_by(params[:id])
+        User.find_by(id: params[:id])
     end
 
     def user_params

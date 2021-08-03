@@ -18,7 +18,7 @@ class TagsController < ApplicationController
     private
 
     def find_tag
-        Tag.find_by(params[:id])
+        Tag.find_by(id: params[:id])
     end
 
     def tag_params
