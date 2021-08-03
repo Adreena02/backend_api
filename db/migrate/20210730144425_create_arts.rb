@@ -3,7 +3,7 @@ class CreateArts < ActiveRecord::Migration[6.1]
     create_table :arts do |t|
       t.string :title
       t.string :artist_info
-      t.string :genres
+      t.string :img_url
 
       t.timestamps
     end
