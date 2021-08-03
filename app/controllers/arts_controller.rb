@@ -12,7 +12,7 @@ class ArtsController < ApplicationController
     private
 
     def find_art
-        Art.find_by(params[:id])
+        Art.find_by(id: params[:id])
     end
 
 
