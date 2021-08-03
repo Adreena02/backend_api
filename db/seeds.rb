@@ -1,9 +1,17 @@
+require 'faker'
+
 puts "Clearing old data..."
 ArtTag.destroy_all
+ArtTag.reset_pk_sequence
 Art.destroy_all
+Art.reset_pk_sequence
 Like.destroy_all
+Like.reset_pk_sequence
 Tag.destroy_all
+Tag.reset_pk_sequence
 User.destroy_all
+User.reset_pk_sequence
+
 
 puts "Seeding users..."
 
@@ -139,30 +147,19 @@ puts "Seeding Arts"
 puts "Seeding Likes"
 
 20.times do
-
-    Like.create(
-        user_id: User.all.sample.id,
-        art_id: Art.all.sample.id
-    )
+    Like.create(user_id: User.ids.sample, art_id: Art.ids.sample)
 end
 
 
 puts "Seeding Tags"
 
 20.times do
-
-    Tag.create(
-        name: Faker::Adjective.positive
-    )
+    Tag.create(name: Faker::Adjective.positive)
 end
 
 
 puts "Seeding ArtTags"
 
 20.times do
-
-    ArtTag.create(
-        art_id: Art.all.sample.id,
-        tag_id: Tag.all.sample.id
-    )
+    ArtTag.create(art_id: Art.ids.sample, tag_id: Tag.ids.sample)
 end
