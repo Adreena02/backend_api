@@ -160,6 +160,6 @@ end
 
 puts "Seeding ArtTags"
 
-20.times do
+50.times do
     ArtTag.create(art_id: Art.ids.sample, tag_id: Tag.ids.sample)
 end
