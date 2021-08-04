@@ -9,6 +9,8 @@ class ArtsController < ApplicationController
         render json: art
     end
 
+    
+
     private
 
     def find_art

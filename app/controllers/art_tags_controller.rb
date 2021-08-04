@@ -1,7 +1,7 @@
 class ArtTagsController < ApplicationController
 
     def index
-        render json: Art_Tag.all
+        render json: ArtTag.all
     end
 
     def show
