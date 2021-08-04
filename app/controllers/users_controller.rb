@@ -1,3 +1,5 @@
+require "pry"
+
 class UsersController < ApplicationController
 
     def create
@@ -15,12 +17,24 @@ class UsersController < ApplicationController
     end
 
     def index
-        render json: User.all
+        users=User.all
+        render json: users
     end
-
+    
     def show
         user = find_user
         render json: user
+    end
+    
+    def favorites
+       
+        user=find_user
+
+        # favorites=Like.find_each do |likes|
+        #     likes.art
+        # end
+
+        render json: user.arts
     end
 
     private
