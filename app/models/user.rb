@@ -19,6 +19,10 @@ class User < ApplicationRecord
             end
         end
     end
+
+    def top_three
+        top_tags.max_by(3){|k,v| v}
+    end
 end
 
 
