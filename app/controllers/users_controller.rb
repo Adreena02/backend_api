@@ -11,6 +11,13 @@ class UsersController < ApplicationController
         end
     end
 
+    def suggestions
+        user = find_user
+        arts = user.top_three
+
+        render json: arts
+    end
+
     def destroy
         user = find_user
         user.destroy
