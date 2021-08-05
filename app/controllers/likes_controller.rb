@@ -23,12 +23,24 @@ class LikesController < ApplicationController
             end
     end
 
+<<<<<<< HEAD
     private
 
     def like_params
         params.permit(:art_id, :user_id)
     end
 
+=======
+    def destroy
+        likes = Like.find_by(user_id: params[:id])
+        if likes
+            likes.destroy
+            render json: "removed from favorites"
+        else
+            render json: { error: "Like is not found"}, status: :not_found
+        end
+    end
+>>>>>>> 2817da1ccc55ba26d59d23b5ffe4102046292db7
     
 
 

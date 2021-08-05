@@ -27,13 +27,7 @@ class UsersController < ApplicationController
     end
     
     def favorites
-       
         user=find_user
-
-        # favorites=Like.find_each do |likes|
-        #     likes.art
-        # end
-
         render json: user.arts
     end
 
