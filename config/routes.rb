@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :likes
+  resources :likes, only: [:index, :show]
   resources :tags, only: [:index, :show, :create]
   resources :art_tags, only: [:index, :show]
   resources :arts, only: [:index, :show]
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/users/:id/favorites', to: "users#favorites"
 
+  post '/likes/:id', to: 'likes#create'
 
   delete '/likes/:id', to: "like#destroy"
 end
