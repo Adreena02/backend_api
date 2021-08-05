@@ -13,6 +13,15 @@ class LikesController < ApplicationController
             end
     end
 
+    def destroy
+        likes = Like.find_by(user_id: params[:id])
+        if likes
+            likes.destroy
+            render json: "removed from favorites"
+        else
+            render json: { error: "Like is not found"}, status: :not_found
+        end
+    end
     
 
 
