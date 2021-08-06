@@ -6,9 +6,8 @@ class LikesController < ApplicationController
 
     def create
         like = Like.create!(like_params)
-        Like.create
             if like.valid?
-                render json: like, status: :created
+                render json: like.art, status: :created
             else
                 render json: { error: "Unable to create"}, status: :not_found
             end
