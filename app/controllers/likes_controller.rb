@@ -1,3 +1,5 @@
+require 'pry'
+
 class LikesController < ApplicationController
 
     def index
@@ -7,8 +9,9 @@ class LikesController < ApplicationController
     def create
         like = Like.create!(like_params)
         Like.create
-            if like.valid?
-                render json: like, status: :created
+            # byebug
+            if like
+                render json: like
             else
                 render json: { error: "Unable to create"}, status: :not_found
             end
@@ -36,7 +39,7 @@ class LikesController < ApplicationController
     private
 
     def like_params
-        params.permit(:art_id, :user_id)
+        params.permit(:user_id)
     end
 
 end

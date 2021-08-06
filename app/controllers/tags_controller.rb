@@ -25,8 +25,8 @@ class TagsController < ApplicationController
         params.permit(:name)
     end
 
-    def render_unprocessable_entity_response(exeception)
-        render json: { errors: exeception.record.errors.full_messages }, status: :unprocessable_entity
-    end
+    # def render_unprocessable_entity_response(exeception)
+    #     render json: { errors: exeception.record.errors.full_messages }, status: :unprocessable_entity
+    # end
 
 end

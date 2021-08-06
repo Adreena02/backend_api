@@ -5,6 +5,7 @@ class Art < ApplicationRecord
     has_many :art_tags
     has_many :tags, through: :art_tags
 
+    validates :id, presence: true
     def self.recommendations (user)
         art = Art.all
         filtered_art = art.select do |faves|
